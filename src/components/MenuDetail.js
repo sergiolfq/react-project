@@ -24,7 +24,7 @@ class MenuDetail extends Component {
      
       return( 
           <div className="container">
-            <div class="row">
+            <div className="row">
                 <div className="col-12 col-md-5 m-1">
                   <Card>
                     <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name}/>
