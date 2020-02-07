@@ -4,16 +4,34 @@ import { Card, CardImg, CardText, CardBody,
   Modal, ModalBody, ModalHeader, Input, Label, Row, Form, FormGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Loading } from './LoadingComponent';
 
-
-    function RenderDish({dish}){
-
+    function RenderDish(props){
+      if (props.isLoading) {
+        return(
+            <div className="container">
+                <div className="row">            
+                    <Loading />
+                </div>
+            </div>
+        );
+    }
+    else if (props.errMess) {
+        return(
+            <div className="container">
+                <div className="row">            
+                    <h4>{props.errMess}</h4>
+                </div>
+            </div>
+        );
+    }
+    else if (props.dish != null) 
       return(
         <Card>
-          <CardImg width="100%" src={dish.image} alt={dish.name}/>
+          <CardImg width="100%" src={props.dish.image} alt={props.dish.name}/>
           <CardBody>
-          <CardTitle>{dish.name}</CardTitle>
-          <CardText>{dish.description}</CardText>
+          <CardTitle>{props.dish.name}</CardTitle>
+          <CardText>{props.dish.description}</CardText>
           </CardBody>
         </Card>
       );
@@ -74,12 +92,11 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                   dishId={this.props.dish.id}/>
             </div>
         </div>  
-        
-      
+            
         </div>
         );
     }
-// comment form 
+
   }
 
   class CommentForm extends Component {
@@ -134,7 +151,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                               </Label>
                               <Control.select model=".rate" id="rate" name="rate"
                                 className="form-control" >
-                                <option selected="selected" value="1"> 1 </option>
+                                <option  value="1"> 1 </option>
                                 <option value="2"> 2 </option>       
                               </Control.select>  
                           </div>
