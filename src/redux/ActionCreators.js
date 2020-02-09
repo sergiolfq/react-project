@@ -4,7 +4,6 @@ import { DISHES } from '../shared/dishes';
 export const fetchDishes = () => (dispatch) => {
 
     dispatch(dishesLoading(true));
-
     setTimeout(() => {
         dispatch(addDishes(DISHES));
     }, 2000);
