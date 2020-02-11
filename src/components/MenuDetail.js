@@ -5,6 +5,7 @@ import { Card, CardImg, CardText, CardBody,
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
     function RenderDish(props){
       if (props.isLoading) {
@@ -28,7 +29,7 @@ import { Loading } from './LoadingComponent';
     else if (props.dish != null) 
       return(
         <Card>
-          <CardImg width="100%" src={props.dish.image} alt={props.dish.name}/>
+          <CardImg top src={baseUrl + props.dish.image} alt={props.dish.name} />    
           <CardBody>
           <CardTitle>{props.dish.name}</CardTitle>
           <CardText>{props.dish.description}</CardText>
