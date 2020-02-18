@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Menu from './MenuComponent';
-import MenuDetail from './MenuDetail';
+import MenuDetail from './MenuDetailComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
@@ -85,7 +85,7 @@ class MainComponent extends Component{
           <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
           <Switch>
               <Route path='/home' component={HomePage} />
-              <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders.leaders} />} />} />
+              <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />} />
               <Route exact path='/menu' component={() => <Menu dishes={this.props.dishes} />} />
               <Route path='/menu/:dishId' component={DishWithId} />
               <Route exact path='/contactus' component={() => <Contact postFeedback={this.props.postFeedback} resetFeedbackForm={this.props.resetFeedbackForm} />} />

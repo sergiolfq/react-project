@@ -80,6 +80,19 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
       } 
 
       render(){
+
+      if (this.props.isLoading) {
+          return(
+                  <Loading />
+          );
+      }
+      else if (this.props.errMess) {
+         
+          return(
+                  <h4>{this.props.errMess}</h4>
+          );
+      }  
+
     
       if(this.state.dish == null){
         return (<></>);
