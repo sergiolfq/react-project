@@ -27,7 +27,7 @@ class Comment extends Component {
         // console.log('Current State is: ' + JSON.stringify(values));
         var resp =this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email,values.message);
         // alert(JSON.stringify(resp));
-        // this.props.resetFeedbackForm();        
+        this.props.resetFeedbackForm();        
         // event.preventDefault();
 
     }
