@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
     Button, Row, Col, Label } from 'reactstrap';
-import { Control, Form, Errors, actions } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 
 class Comment extends Component {
     
@@ -24,10 +24,12 @@ class Comment extends Component {
     }
 
     handleSubmit(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
-        this.props.resetFeedbackForm();
+        // console.log('Current State is: ' + JSON.stringify(values));
+        var resp =this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email,values.message);
+        // alert(JSON.stringify(resp));
+        // this.props.resetFeedbackForm();        
         // event.preventDefault();
+
     }
 
     render(){

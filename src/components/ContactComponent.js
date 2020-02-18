@@ -50,7 +50,7 @@ class Contact extends Component {
                       <h3>Send us your Feedback</h3>
                    </div>
                     <div className="col-12 col-md-9">
-                        <Comment />    
+                        <Comment postFeedback={this.props.postFeedback} />    
                     </div>
                </div>
             </div>
